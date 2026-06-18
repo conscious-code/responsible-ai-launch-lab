@@ -12,7 +12,7 @@ BUSINESS_PRESSURE = "Business Pressure"
 
 SCENARIOS = [
     {
-        "title": "Fairness in AI Screening",
+        "title": "Hiring Model Launch Review",
         "primary_principle": "Fairness",
         "secondary_principles": ["Accountability", "Transparency"],
         "description": (
@@ -21,6 +21,15 @@ SCENARIOS = [
             "even when candidates have similar skills and experience. A major customer is waiting, "
             "and the business team wants to launch next week."
         ),
+        "context": "Your team is preparing to launch an AI résumé screening tool for enterprise customers.",
+        "tension": (
+            "During testing, the system appears to rank candidates from certain universities higher, "
+            "even when candidates have similar skills and experience."
+        ),
+        "decision_point": (
+            "A major customer is waiting, and the business team wants to launch next week."
+        ),
+        "role": "Product Lead",
         "hint": (
             "Look for whether the option prevents unfair outcomes before users are affected, "
             "not just whether it explains the system after launch."
@@ -96,13 +105,22 @@ SCENARIOS = [
         ],
     },
     {
-        "title": "Reliability and Safety in AI Support",
+        "title": "Customer Support AI Escalation",
         "primary_principle": "Reliability & Safety",
         "secondary_principles": ["Transparency", "Accountability"],
         "description": (
             "Your team is launching an AI customer support assistant. In testing, the assistant sometimes gives "
             "confident but incorrect advice for high-impact account issues, such as billing disputes and account recovery."
         ),
+        "context": "Your team is launching an AI customer support assistant.",
+        "tension": (
+            "In testing, the assistant sometimes gives confident but incorrect advice for high-impact "
+            "account issues, such as billing disputes and account recovery."
+        ),
+        "decision_point": (
+            "The team must decide whether the assistant is safe enough for full launch or should be limited first."
+        ),
+        "role": "Product Lead",
         "hint": (
             "Consider whether the AI should handle high-impact cases before its reliability has been validated."
         ),
@@ -161,13 +179,21 @@ SCENARIOS = [
         ],
     },
     {
-        "title": "Privacy and Security in Model Improvement",
+        "title": "Model Improvement Data Request",
         "primary_principle": "Privacy & Security",
         "secondary_principles": ["Transparency", "Accountability"],
         "description": (
             "The product team wants to use customer chat logs to improve the AI model. The logs may include personal or sensitive "
             "information, and user consent for this use is unclear."
         ),
+        "context": "The product team wants to use customer chat logs to improve the AI model.",
+        "tension": (
+            "The logs may include personal or sensitive information, and user consent for this use is unclear."
+        ),
+        "decision_point": (
+            "The team must decide whether model improvement can proceed before consent, retention, and access controls are clarified."
+        ),
+        "role": "Privacy Reviewer",
         "hint": (
             "Focus on consent, data minimization, access control, and secure handling before using customer data."
         ),
@@ -225,13 +251,24 @@ SCENARIOS = [
         ],
     },
     {
-        "title": "Inclusiveness and Accessibility",
+        "title": "Global Feature Readiness Review",
         "primary_principle": "Inclusiveness",
         "secondary_principles": ["Fairness", "Reliability & Safety"],
         "description": (
             "The AI feature works well for fluent English speakers but performs poorly for non-native speakers and users who rely "
             "on assistive technologies. The team is considering launching for the majority user group first."
         ),
+        "context": (
+            "The AI feature is being prepared for a global launch across different user groups and accessibility needs."
+        ),
+        "tension": (
+            "The feature works well for fluent English speakers but performs poorly for non-native speakers "
+            "and users who rely on assistive technologies."
+        ),
+        "decision_point": (
+            "The team is considering launching for the majority user group first and improving support for other users later."
+        ),
+        "role": "Accessibility Advocate",
         "hint": (
             "Ask whether launching now would exclude users who should have been considered during design and testing."
         ),
@@ -287,13 +324,23 @@ SCENARIOS = [
         ],
     },
     {
-        "title": "Transparency and Accountability After Harm",
+        "title": "Post-Launch Incident Response",
         "primary_principle": "Accountability",
         "secondary_principles": ["Transparency", "Reliability & Safety"],
         "description": (
             "After a pilot release, a user reports that the AI system made a harmful recommendation. The team is unsure who owns "
             "the response, explanation, investigation, and remediation."
         ),
+        "context": (
+            "After a pilot release, a user reports that the AI system made a harmful recommendation."
+        ),
+        "tension": (
+            "The team is unsure who owns the response, explanation, investigation, and remediation."
+        ),
+        "decision_point": (
+            "The team must decide how to respond to the incident while maintaining user trust and reducing future harm."
+        ),
+        "role": "Responsible AI Incident Lead",
         "hint": (
             "Look for a decision that creates ownership, escalation, investigation, and communication."
         ),

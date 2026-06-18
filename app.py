@@ -21,6 +21,7 @@ from ui import (
     render_changed_meters,
     render_mode_card,
     render_scenario_header,
+    render_scenario_brief,
     render_planning_prompt,
     render_planning_feedback,
     render_reflection_box,
@@ -170,7 +171,7 @@ def scenario_screen():
     with left:
         render_scenario_header(scenario, scenario_number, TOTAL_SCENARIOS)
 
-        st.write(scenario["description"])
+        render_scenario_brief(scenario)  
 
         if st.session_state.mode == "Beginner":
             with st.expander("Need a hint?"):
@@ -366,8 +367,6 @@ def final_screen():
         if st.button("Restart Game", type="primary", use_container_width=True):
             reset_game()
 
-    with col_b:
-        st.write("Use this final profile as evidence for playtesting and reflection in Project 2.")
 
 
 def main():

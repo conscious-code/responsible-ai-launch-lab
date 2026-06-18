@@ -207,7 +207,40 @@ def render_scenario_header(scenario, scenario_number, total_scenarios):
 
     st.markdown(secondary_html, unsafe_allow_html=True)
 
+def render_scenario_brief(scenario):
+    """
+    Render scenario information in smaller content blocks.
+    This reduces text density and creates a more immersive workplace role-play feel.
+    Falls back to the original description if structured fields are not available.
+    """
+    role = scenario.get("role")
+    context = scenario.get("context")
+    tension = scenario.get("tension")
+    decision_point = scenario.get("decision_point")
 
+    if role or context or tension or decision_point:
+        if role:
+            st.markdown(f"**Your role:** {role}")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            with st.container(border=True):
+                st.markdown("#### Context")
+                st.write(context or "Not provided.")
+
+        with col2:
+            with st.container(border=True):
+                st.markdown("#### Tension")
+                st.write(tension or "Not provided.")
+
+        with col3:
+            with st.container(border=True):
+                st.markdown("#### Decision Point")
+                st.write(decision_point or "Not provided.")
+    else:
+        st.write(scenario["description"])
+        
 def render_planning_prompt(scenario):
     """
     SRL planning prompt. The SRL blueprint says players should predict
